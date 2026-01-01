@@ -1,0 +1,6 @@
+gymnasium
+numpy
+pygame
+tqdm
+imageio
+PyYAML==6.0
