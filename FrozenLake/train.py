@@ -4,7 +4,7 @@ import pickle
 
 env = gym.make(
     "FrozenLake-v1",
-    map_name="4x4",
+    map_name="8x8",
     is_slippery=False,
     render_mode=None,
 )

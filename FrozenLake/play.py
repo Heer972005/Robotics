@@ -25,7 +25,7 @@ while not done:
     action = greedy_policy(Qtable, state)
     state, reward, terminated, truncated, _ = env.step(action)
     done = terminated or truncated
-    time.sleep(0.6)  # slow down for visibility
+    time.sleep(1.5)  # slow down for visibility
 
 if reward == 1:
     print("🏆 Agent reached the goal!")

@@ -1,0 +1,1 @@
+C:\Users\heerm\miniconda3\envs\rl\python.exe -m rl_zoo3.train --algo dqn --env SpaceInvadersNoFrameskip-v4 -f logs/ -c dqn.yml
