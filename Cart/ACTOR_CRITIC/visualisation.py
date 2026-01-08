@@ -70,6 +70,7 @@ for episode in range(1, n_episodes + 1):
         dist = Categorical(probs)
         action = dist.sample()
         log_prob = dist.log_prob(action)
+        entropy = dist.entropy()
 
         # Take action in environment
         next_state, reward, done, truncated, _ = env.step(action.item())
@@ -83,13 +84,14 @@ for episode in range(1, n_episodes + 1):
         # -----------------------
         target_value = reward + gamma * next_state_value * (1 - int(done))
         advantage = target_value - state_value
+        
 
         # -----------------------
         # Losses
         # -----------------------
         actor_loss = -log_prob * advantage.detach()
         critic_loss = F.mse_loss(state_value, target_value.detach())
-        loss = actor_loss + critic_loss
+        loss = actor_loss + critic_loss - 0.01 * entropy
 
         # -----------------------
         # Backpropagation
